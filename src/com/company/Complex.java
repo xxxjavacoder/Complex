@@ -15,129 +15,89 @@ public class Complex implements Serializable {
     private double real;
     private double imag;
 
-    /**
-     * @param real - real part of complex number
-     */
+
 
     public Complex(double real)
     {
         this(real, ZERO);
     }
 
-    /**
-     * @param real - real part of complex number
-     * @param imag - imaginary part of complex number
-     */
+
     public Complex(double real, double imag)
     {
         this.real = real;
         this.imag = imag;
     }
 
-    /**
-     * @return real part of complex number
-     */
+
     public double getReal() {
         return real;
     }
 
-    /**
-     * @param real real part of complex number
-     */
+
     public void setReal(double real) {
         this.real = real;
     }
 
-    /**
-     * @return imaginary part of complex number
-     */
+
     public double getImag() {
         return imag;
     }
 
-    /**
-     * @param imag - imaginary part of complex number
-     */
+
     public void setImag(double imag) {
         this.imag = imag;
     }
 
-    /**
-     * @param z - complex number to add
-     * @return result of adding
-     */
+
     public Complex add(Complex z)
     {
         return new Complex(this.real + z.getReal(), this.imag + z.getImag());
     }
 
-    /**
-     * @param z - double to add
-     * @return result of adding
-     */
+
     public Complex add(double z)
     {
         return new Complex(this.real + z, this.imag);
     }
 
-    /**
-     * @param z - int to add
-     * @return result of adding
-     */
+
     public Complex add(int z)
     {
         return new Complex(this.real + z, this.imag);
     }
 
-    /**
-     * @param z - long to add
-     * @return result of adding
-     */
+
     public Complex add(long z)
     {
         return new Complex(this.real + z, this.imag);
     }
 
-    /**
-     * @param z - complex number to subtract
-     * @return result of subtract
-     */
+
     public Complex subtract(Complex z)
     {
         return new Complex(this.real - z.getReal(), this.imag - z.getImag());
     }
 
-    /**
-     * @param z - int number to subtract
-     * @return result of subtract
-     */
+
     public Complex subtract(int z)
     {
         return new Complex(this.real - z, this.imag);
     }
 
-    /**
-     * @param z - long number to subtract
-     * @return result of subtract
-     */
+
     public Complex subtract(long z)
     {
         return new Complex(this.real - z, this.imag);
     }
 
-    /**
-     * @param z - double number to subtract
-     * @return result of subtract
-     */
+
     public Complex subtract(double z)
     {
         return new Complex(this.real - z, this.imag);
     }
 
-    /**
-     * @param z - complex number to multiply
-     * @return - result of multiply
-     */
+
     public Complex multiply(Complex z)
     {
         if (this.imag == 0d || z.getImag() == 0d)
@@ -149,38 +109,25 @@ public class Complex implements Serializable {
                 (this.real*z.getImag()) + (this.imag* z.getReal()));
     }
 
-    /**
-     * @param z - int number to multiply
-     * @return - result of multiply
-     */
+
     public Complex multiply(int z)
     {
         return new Complex(this.real*z, this.imag*z);
     }
 
-    /**
-     * @param z - long number to multiply
-     * @return - result of multiply
-     */
+
     public Complex multiply(long z)
     {
         return new Complex(this.real*z, this.imag*z);
     }
 
-    /**
-     * @param z - double number to multiply
-     * @return - result of multiply
-     */
+
     public Complex multiply(double z)
     {
         return new Complex(this.real*z, this.imag*z);
     }
 
-    /**
-     * Divide two complex numbers
-     * @param z - the complex denominator/divisor
-     * @return - result of divide
-     */
+
     public Complex divide(Complex z)
     {
         double c = z.getReal();
@@ -206,10 +153,7 @@ public class Complex implements Serializable {
         return new Complex((ac+bd)/(zreal2+zimag2),(bc-ad)/(zreal2+zimag2));
     }
 
-    /**
-     * method for entering a complex number from the console
-     * @return new Complex number
-     */
+
     public static Complex readFromConsole(){
         double real = sc.nextDouble();
         double imag = sc.nextDouble();
@@ -217,10 +161,7 @@ public class Complex implements Serializable {
         return new Complex(real, imag);
     }
 
-    /**
-     * @param o - object for comparison
-     * @return result of comparison
-     */
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -233,17 +174,13 @@ public class Complex implements Serializable {
                 Double.compare(complex.imag, imag) == 0;
     }
 
-    /**
-     * @return hashCode obj
-     */
+
     @Override
     public int hashCode() {
         return Objects.hash(real, imag);
     }
 
-    /**
-     * @return String - data this obj
-     */
+
     @Override
     public String toString() {
         return "real=" + real +
